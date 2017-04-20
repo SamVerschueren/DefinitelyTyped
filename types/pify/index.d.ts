@@ -11,10 +11,10 @@ interface PifyOptions {
     excludeMain?: boolean
 }
 
-declare function pify(input: Function, promiseModule?: Function, options?: PifyOptions): (...args: any[]) => Promise<any>;
 declare function pify(input: any, promiseModule?: Function, options?: PifyOptions): any;
-declare function pify(input: Function, options?: PifyOptions): (...args: any[]) => Promise<any>;
+declare function pify<F extends (...args: any[]) => any>(input: Function, promiseModule?: Function, options?: PifyOptions): F;
 declare function pify(input: any, options?: PifyOptions): any;
+declare function pify<F extends (...args: any[]) => any>(input: Function, options?: PifyOptions): F;
 
 declare namespace pify { }
 export = pify;

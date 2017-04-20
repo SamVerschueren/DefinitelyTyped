@@ -29,3 +29,5 @@ fsP.readFile('foo.txt').then((result: string) => assert(result, 'foo'));
 
 pify(fs.readFile)('foo.txt').then((result: string) => assert(result, 'foo'));
 pify(fs.readFile, Bluebird)('bar.txt').then((result: string) => assert(result, 'bar'));
+
+pify<(file: string) => Promise<string>>(fs.readFile)('foo.txt').then((result: string) => assert(result, 'foo'));
